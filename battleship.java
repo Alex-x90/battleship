@@ -1,5 +1,6 @@
 public class Battleship extends ConsoleProgram
 {
+    //Creates players objects
     Player players[] = new Player[2];
     public void run()
     {
@@ -7,12 +8,15 @@ public class Battleship extends ConsoleProgram
         players[1]=new Player();
         System.out.println("Place your ships.");
         players[0].printMyShips();
+        
+        //Has the player place their ships
         for(int i=0;i<Player.SHIP_LENGTHS.length;i++)
         {
             placeShip();
             players[0].printMyShips();
         }
         
+        //Places the computers ships
         for(int i=0;i<Player.SHIP_LENGTHS.length;i++)
         {
             int col=-1;
@@ -32,10 +36,13 @@ public class Battleship extends ConsoleProgram
             }
         }
         
+        //Main gameplay runs while neither player has won
         while(!players[0].win()&&!players[1].win())
         {
             System.out.println("Your guesses:");
             players[1].printOpponentGuesses();
+            
+            //Gets player guess and checks if they won
             askForGuess();
             if(players[1].win())
             {
@@ -43,6 +50,7 @@ public class Battleship extends ConsoleProgram
                 continue;
             }
             
+            //Generates computer guess, prints info, and then checks if computer won
             int col=-1;
             int row=-1;
             boolean finished=false;
@@ -72,6 +80,7 @@ public class Battleship extends ConsoleProgram
         
     }
     
+    //delay function
     void sleep(int time)
     {
        try {
@@ -79,6 +88,7 @@ public class Battleship extends ConsoleProgram
          } catch (Exception e) {} 
     }
     
+    //Gets the users guess and makes sure they enter a valid guess
     void askForGuess()
     {
         int col=-1;
@@ -95,6 +105,7 @@ public class Battleship extends ConsoleProgram
         
     }
     
+    //Has the player place a ship and makes sure the position is valid
     void placeShip()
     {
         boolean repeat = false;

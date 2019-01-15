@@ -1,3 +1,4 @@
+//This was all premade from codehs
 import java.util.*;
 
 public class Randomizer{

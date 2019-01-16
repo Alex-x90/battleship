@@ -7,6 +7,7 @@ public class Battleship extends ConsoleProgram
         players[0]=new Player();
         players[1]=new Player();
         System.out.println("Place your ships.");
+        System.out.println("Direction 1 is horizontal. Direction 2 is vertical.");
         players[0].printMyShips();
         
         //Has the player place their ships
